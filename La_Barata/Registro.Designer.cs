@@ -46,6 +46,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -65,6 +66,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(237, 22);
             this.textBox3.TabIndex = 61;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
             // 
@@ -83,6 +85,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(237, 22);
             this.textBox2.TabIndex = 59;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -107,6 +110,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(237, 22);
             this.textBox1.TabIndex = 57;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -141,6 +145,7 @@
             this.button2.TabIndex = 55;
             this.button2.Text = "AGREGAR USUARIO";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -178,10 +183,11 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(444, 367);
+            this.textBox4.Location = new System.Drawing.Point(444, 286);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(237, 22);
             this.textBox4.TabIndex = 65;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -196,17 +202,19 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(444, 286);
+            this.textBox5.Location = new System.Drawing.Point(444, 321);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(237, 22);
             this.textBox5.TabIndex = 63;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(444, 413);
+            this.textBox6.Location = new System.Drawing.Point(444, 364);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(237, 22);
             this.textBox6.TabIndex = 68;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label8
             // 
@@ -221,10 +229,11 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(444, 329);
+            this.textBox7.Location = new System.Drawing.Point(444, 410);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(237, 22);
             this.textBox7.TabIndex = 70;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label9
             // 
@@ -237,12 +246,23 @@
             this.label9.TabIndex = 69;
             this.label9.Text = "Gerente";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label10.Location = new System.Drawing.Point(454, 88);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 23);
+            this.label10.TabIndex = 71;
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1113, 660);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox6);
@@ -290,5 +310,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

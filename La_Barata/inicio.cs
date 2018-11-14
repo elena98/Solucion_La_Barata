@@ -12,9 +12,14 @@ namespace La_Barata
 {
     public partial class inicio : Form
     {
-        public inicio()
+        int nivel;
+        string usuario;
+
+        public inicio(int nivel, string usuario)
         {
             InitializeComponent();
+            this.nivel = nivel;
+            this.usuario = usuario;
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -67,6 +72,7 @@ namespace La_Barata
         private void btnInventario_Click(object sender, EventArgs e)
         {
             AbrirFormInPanel(new Inventario());
+
         }
 
         private void btnRecortes_Click(object sender, EventArgs e)
@@ -106,6 +112,11 @@ namespace La_Barata
             this.WindowState = FormWindowState.Normal;
             pictureBox6.Visible = false;
             pictureBox5.Visible = true;
+        }
+
+        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

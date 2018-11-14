@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace La_Barata
 {
     public partial class Form1 : Form
+
     {
+        string usuario = "";
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +26,22 @@ namespace La_Barata
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            int nivel = DatosUsuario.Login(textBox3.Text, textBox4.Text);
+            if (nivel > 0)
+            {
+                inicio Inicio = new inicio (nivel, usuario);
+                DatosUsuario.usuario(textBox3.Text, textBox4.Text, Inicio.label1, Inicio.label2);
+                Inicio.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("ERROR");
+            }
+            textBox3.Text = "";
+            textBox4.Text = "";
+
+
 
         }
         int posY, posX = 0;

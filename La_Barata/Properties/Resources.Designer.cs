@@ -93,6 +93,26 @@ namespace La_Barata.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_usuario_masculino_en_círculo_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-usuario-masculino-en-círculo-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMG_20181011_WA0041 {
+            get {
+                object obj = ResourceManager.GetObject("IMG-20181011-WA0041", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
@@ -116,6 +136,16 @@ namespace La_Barata.Properties {
         internal static System.Drawing.Bitmap minimize_thewindow_theapplication_2872 {
             get {
                 object obj = ResourceManager.GetObject("minimize_thewindow_theapplication_2872", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_77926 {
+            get {
+                object obj = ResourceManager.GetObject("user_77926", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

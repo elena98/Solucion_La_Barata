@@ -41,11 +41,11 @@ namespace La_Barata
 
                 while (readr.Read())
                 {
-                   // string idProductoInventario = readr.GetString(0);
+                    // string idProductoInventario = readr.GetString(0);
                     string nombre = readr.GetString(0);
                     string cantidad = readr.GetString(1);
                     string precio = readr.GetString(2);
-  
+
                     Productos pProducto = new Productos();
                     //pProducto.idProductoInventario = idProductoInventario;
                     pProducto.nombre = nombre;
@@ -67,7 +67,7 @@ namespace La_Barata
             List<Productos> Lista = new List<Productos>();
             using (MySqlConnection Conx = conection.Conexion())
             {
-                MySqlCommand cm = new MySqlCommand("select nombre, cantidad, oferta precio from producto_inventario where activo = 0", Conx);
+                MySqlCommand cm = new MySqlCommand("select nombre,cantidad, precio, oferta precio from producto_inventario where activo = 0", Conx);
                 MySqlDataReader readr = cm.ExecuteReader();
 
                 while (readr.Read())
@@ -90,8 +90,6 @@ namespace La_Barata
             }
 
         }
-
-
 
         public static int AddUser(string usuarioR, string nombresR, string apellidosR, string telefonoR, string activoR, string passwordR)
         {
@@ -117,7 +115,7 @@ namespace La_Barata
 
         public static int UpdateProduct(String Producto, String Cantidad, String Precio)
         {
-            
+
             int retorno = 0;
             //String Proc = Producto;
             Int64 Cant = Int64.Parse(Cantidad);
@@ -137,7 +135,7 @@ namespace La_Barata
         public static int DeleteProduct(String Producto)
         {
             int retorno = 0;
-            String producto =Producto;
+            String producto = Producto;
             using (MySqlConnection Conn = conection.Conexion())
             {
                 MySqlCommand Comando = new MySqlCommand(string.Format
@@ -151,7 +149,8 @@ namespace La_Barata
 
         }
 
-        public static List<Recortes> SearchRecorte(){
+        public static List<Recortes> SearchRecorte()
+        {
 
             List<Recortes> Lista = new List<Recortes>();
             using (MySqlConnection Conx = conection.Conexion())
@@ -169,7 +168,7 @@ namespace La_Barata
                     Recortes pRecortes = new Recortes();
                     pRecortes.total = total;
                     pRecortes.nombres = nombres;
-                    pRecortes.apellidos = apellidos;   
+                    pRecortes.apellidos = apellidos;
 
                     Lista.Add(pRecortes);
                 }
@@ -180,20 +179,20 @@ namespace La_Barata
 
         public static string SumVentas()
         {
-            
+
             string retorno;
             string total;
-           // int activo = 1;
+            // int activo = 1;
             using (MySqlConnection Conn = conection.Conexion())
             {
-            
+
                 MySqlCommand Comando = new MySqlCommand(string.Format
                     ("select SUM(total) from ventas where activo = 1"), Conn);
                 MySqlDataReader readr = Comando.ExecuteReader();
                 readr.Read();
-                
+
                 total = readr.GetString(0);
-                retorno = total + " " ;
+                retorno = total + " ";
                 readr.Close();
                 Conn.Close();
 
@@ -238,7 +237,7 @@ namespace La_Barata
         }
 
         public static int addRecorte(string nombreP, string cantidadP, string precioPk)
-        { 
+        {
             int retorno = 0;
             string nombre = nombreP;
             string cantidad = cantidadP;
@@ -254,8 +253,6 @@ namespace La_Barata
             return retorno;
 
         }
-
-
 
         public static List<Productos> OFProducts()
         {
@@ -289,7 +286,58 @@ namespace La_Barata
 
         }
 
+        public static int AddOfert(string nombreP, string ofertaP)
+        {
+            int retorno = 0;
+            string nombre = nombreP;
+            string oferta = ofertaP;
+            using (MySqlConnection Conn = conection.Conexion())
+            {
+                MySqlCommand Comando = new MySqlCommand(string.Format(
+                   "Update producto_inventario set oferta ='{1}', activo = 0 where nombre = '{0}'",
+                    nombre, oferta), Conn);
+                retorno = Comando.ExecuteNonQuery();
+                Conn.Close();
+            }
+            return retorno;
+
+
+        }
+
+        public static int ActiveOfert(string nombreP)
+        {
+            int retorno = 0;
+            string nombre = nombreP;
+            using (MySqlConnection Conn = conection.Conexion())
+            {
+                MySqlCommand Comando = new MySqlCommand(string.Format(
+                   "Update producto_inventario set activo = 0 where nombre = '{0}'",
+                    nombre), Conn);
+                retorno = Comando.ExecuteNonQuery();
+                Conn.Close();
+            }
+            return retorno;
+
+
+
+        }
+
+
+        public static int DeleteOfert(string nombreP)
+        {
+            int retorno = 0;
+            string nombre = nombreP;
+            using (MySqlConnection Conn = conection.Conexion())
+            {
+                MySqlCommand Comando = new MySqlCommand(string.Format
+                    ("Update producto_inventario set activo = 1 where nombre ='{0}'", nombre), Conn);
+                retorno = Comando.ExecuteNonQuery();
+                Conn.Close();
+            }
+            return retorno;
+
+        }
 
 
     }
-}
+    }

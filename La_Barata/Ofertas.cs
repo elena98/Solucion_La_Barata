@@ -16,6 +16,7 @@ namespace La_Barata
 {
     public partial class Ofertas : Form
     {
+        int a, b, c, va = 0;
         public Ofertas()
         {
             InitializeComponent();
@@ -23,7 +24,70 @@ namespace La_Barata
 
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funciones.OfertProducts();
+            va = a + b;
+
+            if (va >= 3) {
+               int Dato = funciones.AddOfert(textBox1.Text, textBox2.Text);
+                if (Dato > 0)
+                {
+                    dataGridView1.DataSource = funciones.OfertProducts();
+                
+                }
+  
+
+            }
+            if (va == 1)
+            {
+                MessageBox.Show("ERROR..");
+            }
+ 
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            string pattern3 = "(^[0-9|.| ]+$)";
+            if (Regex.IsMatch(textBox2.Text, pattern3) == true)
+            {
+                label7.Text = " ";
+                b = 1;
+            }
+            else
+            {
+                label7.ForeColor = Color.Red;
+                label7.Text = "Precio incorrecto.";
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int Dato = funciones.DeleteOfert(textBox1.Text);
+            if (Dato > 0)
+            {
+                dataGridView1.DataSource = funciones.OfertProducts();
+            }
+        }
+
+        private void Ofertas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+                int Dato = funciones.ActiveOfert(textBox1.Text);
+            if (Dato > 0)
+            {
+                dataGridView1.DataSource = funciones.OfertProducts();
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funciones.SearchProducts();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -45,10 +109,9 @@ namespace La_Barata
 
                     }
                     textBox1.AutoCompleteCustomSource = mycollection;
+                    a = 2;
                     Conx.Close();
                 }
-
-                
 
                 label7.Text = " ";
                
@@ -67,7 +130,7 @@ namespace La_Barata
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funciones.OFProducts();
+             dataGridView1.DataSource = funciones.OfertProducts();
         }
     }
 }
